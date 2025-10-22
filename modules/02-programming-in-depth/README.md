@@ -17,6 +17,7 @@
 
 ## Labs
 - Implement the same exercises per track: testing, error handling, logging, configuration.
+- See LABS.md for shared lab specs and acceptance criteria.
 
 ## Assessments
 - Track-specific checkpoints and a common rubric across languages.
