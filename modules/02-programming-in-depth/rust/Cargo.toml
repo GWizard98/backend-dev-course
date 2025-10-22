@@ -6,3 +6,11 @@ edition = "2021"
 authors = ["Backend Dev Course"]
 
 [dependencies]
+axum = { version = "0.7", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+tokio = { version = "1.38", features = ["macros", "rt-multi-thread"] }
