@@ -10,7 +10,7 @@ This is a living syllabus. Adjust sequencing and depth as the project evolves.
 - Linux fundamentals and networking basics
 
 ## Programming in Depth (Module 02)
-- One mainstream language (confirm later): e.g., JavaScript/TypeScript, Python, or Go
+- Polyglot tracks: Rust, TypeScript (Node.js), Python, JavaScript (Node.js), Go
 - Code organization, testing basics, and debugging essentials
 - Error handling, logging, and configuration
 
