@@ -20,5 +20,10 @@ export function buildApp() {
     req.log = req.log.child({ reqId: req.id });
   });
 
+  app.addHook("onSend", async (req, reply, payload) => {
+    reply.header("x-request-id", req.id);
+    return payload;
+  });
+
   return app;
 }

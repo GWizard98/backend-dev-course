@@ -39,6 +39,16 @@ func NewRouter() *chi.Mux {
 	r := chi.NewRouter()
 	r.Use(middleware.RequestID)
 	r.Use(middleware.Logger)
+	// Ensure X-Request-ID header is included in responses
+	r.Use(func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			next.ServeHTTP(w, r)
+			if id := middleware.GetReqID(r.Context()); id != "" {
+				w.Header().Set("X-Request-ID", id)
+			}
+		})
+	})
+
 	r.Post("/normalize", normalizeHandler)
 	return r
 }

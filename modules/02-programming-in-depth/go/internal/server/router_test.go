@@ -26,6 +26,9 @@ func TestNormalizeEndpoint(t *testing.T) {
 	if w2.Code != 200 {
 		t.Fatalf("expected 200, got %d", w2.Code)
 	}
+	if w2.Header().Get("X-Request-ID") == "" {
+		t.Fatalf("expected X-Request-ID header")
+	}
 	if !strings.Contains(w2.Body.String(), "Foo Bar Baz") {
 		t.Fatalf("expected normalized body, got %s", w2.Body.String())
 	}

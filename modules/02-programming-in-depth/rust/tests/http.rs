@@ -12,6 +12,7 @@ async fn normalize_returns_400_on_empty() {
 
     let resp = app.clone().oneshot(req).await.unwrap();
     assert_eq!(resp.status(), 400);
+    assert!(resp.headers().get("x-request-id").is_some());
 }
 
 #[tokio::test]
@@ -25,6 +26,7 @@ async fn normalize_returns_normalized_text() {
 
     let resp = app.clone().oneshot(req).await.unwrap();
     assert_eq!(resp.status(), 200);
+    assert!(resp.headers().get("x-request-id").is_some());
 
     let bytes = body::to_bytes(resp.into_body(), 1024 * 1024).await.unwrap();
     let v: serde_json::Value = serde_json::from_slice(&bytes).unwrap();
