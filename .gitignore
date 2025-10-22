@@ -1,0 +1,12 @@
+# Ignore OS and editor files
+.DS_Store
+Thumbs.db
+
+# Node, Python, Go, etc. (future tooling; harmless to ignore now)
+node_modules/
+.env
+venv/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
