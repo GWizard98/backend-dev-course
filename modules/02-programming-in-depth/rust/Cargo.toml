@@ -1,0 +1,8 @@
+[package]
+name = "module02_rust_track"
+version = "0.1.0"
+edition = "2021"
+
+authors = ["Backend Dev Course"]
+
+[dependencies]
