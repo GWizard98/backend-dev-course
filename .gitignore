@@ -2,11 +2,25 @@
 .DS_Store
 Thumbs.db
 
-# Node, Python, Go, etc. (future tooling; harmless to ignore now)
+# Node
 node_modules/
+**/node_modules/
+dist/
+**/dist/
+coverage/
+**/coverage/
+
+# Python
 .env
 venv/
+**/.venv/
 __pycache__/
+**/__pycache__/
 *.pyc
+
+# Rust
+**/target/
+
+# IDE
 .idea/
 .vscode/
