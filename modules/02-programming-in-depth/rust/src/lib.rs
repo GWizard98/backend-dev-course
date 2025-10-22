@@ -1,3 +1,5 @@
+pub mod app;
+
 pub fn normalize_user_input(s: &str) -> String {
     let mut out = String::new();
     let mut prev_ws = false;

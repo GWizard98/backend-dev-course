@@ -1,4 +1,4 @@
-use axum::{http::Request, middleware, routing::post, Json, Router};
+use axum::{http::Request, routing::post, Json, Router};
 use axum::extract::State;
 use serde::{Deserialize, Serialize};
 use tower_http::trace::TraceLayer;

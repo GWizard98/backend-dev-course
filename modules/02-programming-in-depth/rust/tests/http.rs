@@ -1,5 +1,4 @@
-use axum::{body::Body, http::Request};
-use module02_rust_track::normalize_user_input; // ensure the crate builds as a lib
+use axum::{body::Body, http::Request, body};
 use tower::ServiceExt; // for `oneshot`
 
 #[tokio::test]
@@ -27,7 +26,7 @@ async fn normalize_returns_normalized_text() {
     let resp = app.clone().oneshot(req).await.unwrap();
     assert_eq!(resp.status(), 200);
 
-    let bytes = hyper::body::to_bytes(resp.into_body()).await.unwrap();
+    let bytes = body::to_bytes(resp.into_body(), 1024 * 1024).await.unwrap();
     let v: serde_json::Value = serde_json::from_slice(&bytes).unwrap();
     assert_eq!(v["normalized"], "Foo Bar Baz");
 }
