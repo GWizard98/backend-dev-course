@@ -1,10 +1,12 @@
 import { buildApp } from "./server.js";
 
+import { loadConfig } from "./config.js";
+
+const cfg = loadConfig();
 const app = buildApp();
-const port = Number(process.env.PORT || 3000);
 app
-  .listen({ port, host: "127.0.0.1" })
-  .then(() => console.log(`listening on ${port}`))
+  .listen({ port: cfg.port, host: "127.0.0.1" })
+  .then(() => console.log(`listening on ${cfg.port} env=${cfg.env}`))
   .catch((err) => {
     console.error(err);
     process.exit(1);

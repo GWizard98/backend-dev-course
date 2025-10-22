@@ -30,7 +30,7 @@ These labs are language-agnostic. Implement in your chosen track under this modu
 ## Lab 04: Configuration and Environments
 - Objectives: Load config from env and files; support dev/test separation.
 - Tasks:
-  - Implement config loader with defaults + env overrides.
+  - Implement config loader with defaults + env overrides (env vars: PORT, APP_ENV, LOG_LEVEL).
   - Ensure tests can inject config without relying on global state.
 - Acceptance Criteria:
   - Running with different env values changes behavior as expected; tests cover config.

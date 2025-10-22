@@ -1,4 +1,5 @@
 pub mod app;
+pub mod config;
 
 pub fn normalize_user_input(s: &str) -> String {
     let mut out = String::new();

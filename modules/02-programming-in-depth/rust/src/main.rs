@@ -1,7 +1,7 @@
 use std::net::SocketAddr;
 use tracing_subscriber::{fmt, EnvFilter};
 
-use module02_rust_track::app;
+use module02_rust_track::{app, config};
 
 #[tokio::main]
 async fn main() {
@@ -9,8 +9,9 @@ async fn main() {
 
     let app = app::router();
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
-    tracing::info!(%addr, "listening");
+    let cfg = config::Config::from_env();
+    let addr = SocketAddr::from(([127, 0, 0, 1], cfg.port));
+    tracing::info!(%addr, env = %cfg.env, "listening");
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
